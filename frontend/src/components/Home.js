@@ -7,7 +7,8 @@ function Home() {
   const [employees, setEmployees] = useState([]); // initialize empty array
 
 useEffect(() => {
-  axios.get("https://your-render-backend-url/api/employees")
+  axios.get("https://employee-management-system-q1tm.onrender.com/api/employees")
+
     .then(res => {
       console.log("API Response:", res.data);
       setEmployees(res.data);
