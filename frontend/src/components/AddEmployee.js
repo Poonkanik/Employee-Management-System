@@ -12,8 +12,8 @@ function AddEmployee() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:8080/api/employees", emp)
-      .then(() => {
+ axios.post("https://employee-management-system-2-lyxx.onrender.com/api/employees", emp)
+    .then(() => {
         alert("Employee added");
         navigate("/home");
       })
