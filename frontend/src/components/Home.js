@@ -6,11 +6,15 @@ import "../App.css";
 function Home() {
   const [employees, setEmployees] = useState([]); // initialize empty array
 
-  useEffect(() => {
-    axios.get("http://localhost:8080/api/employees")
-      .then(res => setEmployees(res.data))
-      .catch(err => console.error(err));
-  }, []);
+useEffect(() => {
+  axios.get("https://your-render-backend-url/api/employees")
+    .then(res => {
+      console.log("API Response:", res.data);
+      setEmployees(res.data);
+    })
+    .catch(err => console.error("API Error:", err));
+}, []);
+
 
   return (
     <div className="page-container">
@@ -29,7 +33,7 @@ function Home() {
             </tr>
           </thead>
           <tbody>
-            {employees.map(emp => (
+           {Array.isArray(employees) && employees.map(emp => (
               <tr key={emp.id}>
                 <td>{emp.id}</td>
                 <td>{emp.name}</td>
@@ -39,6 +43,7 @@ function Home() {
                 <td>{emp.salary}</td>
               </tr>
             ))}
+
           </tbody>
         </table>
       </div>
