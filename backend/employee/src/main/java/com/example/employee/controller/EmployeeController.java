@@ -9,7 +9,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/employees")
-@CrossOrigin(origins = "http://localhost:3000") // Allow React frontend
+@CrossOrigin(origins = {
+        "http://localhost:3000",
+        "https://employee-management-system-blond-kappa.vercel.app"
+})
+// Allow React frontend
 public class EmployeeController {
 
     private final EmployeeService service;
