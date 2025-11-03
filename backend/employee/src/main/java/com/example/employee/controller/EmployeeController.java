@@ -10,9 +10,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/employees")
 @CrossOrigin(origins = {
-    "http://localhost:3000",
-    "https://employee-management-system-blond-kappa.vercel.app", 
-    "https://employee-management-system-2-lyxx.onrender.com"
+        "http://localhost:3000",
+        "https://employee-management-system-blond-kappa.vercel.app",
+        "https://employee-management-system-q1tm.onrender.com"
+
 })
 
 // Allow React frontend
