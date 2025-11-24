@@ -40,19 +40,33 @@ public class EmployeeService {
         return false;
     }
 
-    // Update existing employee (optional)
-    public Employee updateEmployee(Long id, Employee newEmployee) {
-        return repository.findById(id)
-                .map(existing -> {
-                    existing.setName(newEmployee.getName());
-                    existing.setRole(newEmployee.getRole());
-                    existing.setEmail(newEmployee.getEmail());
-                    existing.setExperience(newEmployee.getExperience());
-                    existing.setSalary(newEmployee.getSalary());
-                    existing.setBackgroundCheck(newEmployee.isBackgroundCheck());
-                    existing.setDegreeVerification(newEmployee.isDegreeVerification());
-                    return repository.save(existing);
-                })
-                .orElseThrow(() -> new RuntimeException("Employee not found with id: " + id));
+    // // Update existing employee (optional)
+    // public Employee updateEmployee(Long id, Employee newEmployee) {
+    // return repository.findById(id)
+    // .map(existing -> {
+    // existing.setName(newEmployee.getName());
+    // existing.setRole(newEmployee.getRole());
+    // existing.setEmail(newEmployee.getEmail());
+    // existing.setExperience(newEmployee.getExperience());
+    // existing.setSalary(newEmployee.getSalary());
+    // existing.setBackgroundCheck(newEmployee.isBackgroundCheck());
+    // existing.setDegreeVerification(newEmployee.isDegreeVerification());
+    // return repository.save(existing);
+    // })
+    // .orElseThrow(() -> new RuntimeException("Employee not found with id: " +
+    // id));
+
+    public Employee updateEmployee(Long id, Employee updatedEmp) {
+        return repository.findById(id).map(emp -> {
+            emp.setName(updatedEmp.getName());
+            emp.setRole(updatedEmp.getRole());
+            emp.setEmail(updatedEmp.getEmail());
+            emp.setExperience(updatedEmp.getExperience());
+            emp.setSalary(updatedEmp.getSalary());
+            emp.setBackgroundCheck(updatedEmp.isBackgroundCheck());
+            emp.setDegreeVerification(updatedEmp.isDegreeVerification());
+            return repository.save(emp);
+        }).orElseThrow(() -> new RuntimeException("Employee Not Found"));
     }
+
 }

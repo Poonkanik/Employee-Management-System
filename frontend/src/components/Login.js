@@ -9,15 +9,27 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
+
+    // Validation
+    if (username.trim() === "") {
+      alert("Username cannot be empty");
+      return;
+    }
+
+    if (password.trim() === "") {
+      alert("Password cannot be empty");
+      return;
+    }
+
+    // Correct credentials
     if (username === "admin" && password === "company@1") {
+      
+      // SAVE LOGIN STATUS
+      localStorage.setItem("auth", "true");  // <==== REQUIRED
+
       alert("Login Successful");
       navigate("/home");
-    }else if(username===" "|| password==="company@1") {
-      alert("Error in Username");
-    }
-    else if (username==="admin" || password===" ") {
-      alert("Error in Password");
-    }
+    } 
     else {
       alert("Invalid credentials");
     }
@@ -26,15 +38,27 @@ function Login() {
   return (
     <div className="page-container">
       <h2 className="page-title">Login</h2>
+
       <form onSubmit={handleLogin}>
         <div className="form-group">
           <label>Username</label>
-          <input value={username} onChange={e => setUsername(e.target.value)} required />
+          <input
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+            required
+          />
         </div>
+
         <div className="form-group">
           <label>Password</label>
-          <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
+          <input
+            type="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            required
+          />
         </div>
+
         <button type="submit" className="btn">Login</button>
       </form>
     </div>

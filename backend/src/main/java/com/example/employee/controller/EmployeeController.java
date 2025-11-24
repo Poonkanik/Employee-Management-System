@@ -64,4 +64,18 @@ public class EmployeeController {
             return ResponseEntity.noContent().build();
         return ResponseEntity.notFound().build();
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Employee> updateEmployee(
+            @PathVariable Long id,
+            @RequestBody Employee updatedEmployee) {
+
+        try {
+            Employee updated = service.updateEmployee(id, updatedEmployee);
+            return ResponseEntity.ok(updated);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
 }

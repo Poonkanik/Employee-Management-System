@@ -110,3 +110,35 @@ tr:hover {
   .checkbox-group { flex-direction: column; gap: 5px; }
   table, th, td { font-size: 0.85rem; }
 }
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-btn {
+  background: #1b4d89;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-btn:hover {
+  background: #143969;
+}
+
+.delete-btn:hover {
+  background: #c12e2a;
+}
